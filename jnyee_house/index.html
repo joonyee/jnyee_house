@@ -3,86 +3,73 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
-    <meta name="Author" content="">
-    <meta name="Keywords" content="">
-    <meta name="Description" content="">
     <title>sample</title>
 
     <style>
         /* 기본 초기화 */
-        * {margin: 0; padding: 0;}
-        li {list-style: none;}
+        * { margin: 0; padding: 0; }
+        li { list-style: none; }
 
-        /* body 마진 명시적 제거 (최상단 여백 방지) */
         body {
             margin: 0;
             padding: 0;
         }
 
-        /* 1. 애니메이션 정의: 페이드 인 효과 */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* 웹/태블릿 공통 컨테이너 스타일 */
+        /* 컨테이너 */
         .hihi {
-            position: relative; /* 버튼 위치 지정의 기준점 */
-            margin: 0 auto; /* 중앙 정렬 */
+            position: relative;
+            margin: 0 auto;
             padding: 0;
-            line-height: 0; /* 웹 환경에서 이미지 아래 공백 제거 */
+            line-height: 0;
         }
 
-        /* 2. 주요 이미지 스타일 (애니메이션 적용) */
         .hihi img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* 3. 버튼 스타일 (웹 기준: 이미지 위 절대 위치 및 퍼센트 지정) */
+        /* 버튼 위치 */
         .responsive-button {
-            position: absolute; /* 이미지 위로 오버레이 */
+            position: absolute;
             top: 23%;
             left: 18%;
-
             width: 50%;
-            
             display: inline-block;
             cursor: pointer;
-            line-height: 0; /* 버튼 이미지 자체 공백 방지 */
+            line-height: 0;
             z-index: 10;
         }
-        
+
+        /* 버튼 이미지 */
         .responsive-button img {
             width: 60%;
             height: auto;
             display: block;
+
+            /* 이미지 중심 기준 */
+            transform-origin: 50% 50%;
         }
-        
-        /* 미디어 쿼리: 모바일 전용 스타일 (화면 너비 768px 이하일 때) */
+
+        /*  hover 시 중심 기준 15도 회전 */
+        .responsive-button:hover img {
+            transform: rotate(15deg);
+        }
+
+        /* 모바일 */
         @media screen and (max-width: 768px) {
-            
-            /* 4. 모바일: hihi 컨테이너 너비 확장 */
             .hihi {
                 width: 100%;
                 max-width: none;
                 padding: 0;
-                /* position: relative; 상속 유지 */
             }
 
-            /* 5. 모바일: 버튼 위치 설정 (line-height: 0이 hihi에 있어도 버튼이 static으로 배치됨) */
             .responsive-button {
-                position: absolute; /* 이미지 위로 오버레이 */
                 top: 20%;
                 left: 22%;
-                display: block;
                 width: 50%;
-                margin: 20px auto; /* 중앙 정렬 및 이미지 아래 충분한 여백 확보 */
-                line-height: 0;
             }
 
-            /* 모바일 버튼 이미지 크기 조정 */
             .responsive-button img {
                 width: 100%;
             }
@@ -104,6 +91,5 @@
             </picture>
         </a>
     </div>
-
 </body>
 </html>
